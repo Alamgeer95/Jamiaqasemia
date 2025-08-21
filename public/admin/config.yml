@@ -1,0 +1,49 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+site_url: "/"
+locale: "bn"
+
+collections:
+  - name: "site"
+    label: "সাইট সেটিংস"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: "src/data/site.json"
+        label: "মূল তথ্য"
+        name: "settings"
+        fields:
+          - {label: "মাদরাসার নাম", name: "name", widget: "string"}
+          - {label: "স্লোগান", name: "slogan", widget: "string", required: false}
+          - {label: "ঠিকানা", name: "address", widget: "text", required: false}
+          - {label: "হিরো টাইটেল", name: "heroTitle", widget: "string", required: false}
+          - {label: "হিরো বর্ণনা", name: "heroDescription", widget: "text", required: false}
+          - label: "সেকশনসমূহ"
+            name: "sections"
+            widget: "list"
+            fields:
+              - {label: "শিরোনাম", name: "title", widget: "string"}
+              - {label: "কনটেন্ট", name: "content", widget: "markdown"}
+              - {label: "ছবি", name: "image", widget: "image", required: false}
+  - name: "pages"
+    label: "পেইজসমূহ"
+    label_singular: "পেইজ"
+    folder: "content/pages"
+    create: true
+    format: "frontmatter"
+    slug: "{{slug}}"
+    extension: "md"
+    media_folder: ""
+    public_folder: ""
+    fields:
+      - {label: "শিরোনাম", name: "title", widget: "string"}
+      - {label: "বডি", name: "body", widget: "markdown"}
+      - {label: "প্রকাশিত?", name: "published", widget: "boolean", default: true}
+      - {label: "তারিখ", name: "date", widget: "datetime"}
+publish_mode: editorial_workflow

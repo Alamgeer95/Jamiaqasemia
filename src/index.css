@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
+.animate-fade-in-down { animation: fadeInDown 0.6s ease-out forwards; }
+.animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+.animate-slide-in-left { animation: slideInLeft 0.7s ease-out forwards; }
+.animate-slide-in-right { animation: slideInRight 0.7s ease-out forwards; }
+.animate-spin { animation: spin 1s linear infinite; }
+
+/* Ensure html and body take full height and allow scrolling */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+body {
+    font-family: 'Tiro Bangla', sans-serif;
+    display: flex; /* Make body a flex container */
+    flex-direction: column; /* Stack children vertically */
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+    overflow-y: auto; /* Enable scrolling on the body if content overflows */
+}
+/* Custom CSS for underline animation on hover */
+.nav-link-underline {
+    position: relative;
+}
+.nav-link-underline::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #ffffff; /* White underline */
+    transition: width 0.3s ease-in-out;
+}
+.nav-link-underline:hover::after,
+.nav-link-underline.active::after {
+    width: 100%;
+}
+
+/* Sidebar specific styles */
+.sidebar-menu {
+    width: 280px; /* Increased width for better readability */
+    background-color: #1a202c; /* Darker background */
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 0 15px 15px 0; /* Rounded right corners */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem; /* Added padding for spacing */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 0.85rem 1.25rem; /* Increased padding for larger touch area */
+    border-radius: 12px; /* Slightly more rounded */
+    font-size: 1.125rem; /* Increased font size */
+    font-weight: 500;
+    color: #e2e8f0; /* Lighter text color */
+    transition: all 0.3s ease-in-out; /* Smoother transition */
+    margin-bottom: 0.65rem; /* Adjusted spacing */
+}
+
+.sidebar-link:hover {
+    background-color: #2d3748; /* Darker hover background */
+    color: #ffffff;
+    transform: translateX(8px); /* More prominent slide effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+}
+
+.sidebar-link.active {
+    background-color: #4c51bf; /* Stronger active background (indigo-700 equivalent) */
+    color: #ffffff;
+    font-weight: 700;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* More prominent shadow for active */
+    border-left: 4px solid #6366f1; /* Left border for active state */
+    padding-left: 1.1rem; /* Adjust padding due to border */
+}
+
+.sidebar-link svg {
+    margin-right: 1rem; /* Increased margin for icon */
+    min-width: 24px; /* Ensure icon doesn't shrink */
+}
+
+/* Animation for hamburger/close icon */
+.menu-icon-animate {
+    transition: transform 0.3s ease-in-out;
+}
+.menu-icon-animate.open {
+    transform: rotate(90deg);
+}
+
+/* Custom SVG for bearded man with cap */
+.bearded-man-icon {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0; /* Light background for the circle */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bearded-man-icon svg {
+    width: 60%; /* Adjust size as needed */
+    height: 60%; /* Adjust size as needed */
+    color: #4c51bf; /* Icon color */
+}
