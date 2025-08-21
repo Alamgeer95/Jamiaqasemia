@@ -48,7 +48,7 @@ const HomePage = ({ madrasaInfo }) => {
         <div className="p-6 md:p-10 bg-white rounded-2xl shadow-xl animate-fade-in">
             <div className="text-center mb-10">
                 {/* Madrasa Arabic Name in Cairo font - two lines, font size adjustment and bold */}
-                <h1 className="text-4xl md:text-5xl font-extrabold text-indigo-900 mb-4 animate-fade-in-down font-['Cairo']" dir="rtl">
+                <h1 className="text-3xl md:text-5xl font-extrabold text-indigo-900 mb-4 animate-fade-in-down font-['Cairo']" dir="rtl">
                  "{madrasaInfo.arabicName}"
                 </h1>
                 <p className="text-xl md:text-2xl text-gray-700 italic animate-fade-in-up">
