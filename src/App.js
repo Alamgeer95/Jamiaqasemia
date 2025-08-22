@@ -1499,7 +1499,7 @@ const FatwaPage = ({ headerHeight }) => { // Receive headerHeight as prop
                 setChatHistory(prev => [...prev, { role: 'ai', text: text }]);
             } else {
                 setError('দুঃখিত, আপনার প্রশ্নের উত্তর দিতে পারিনি। অনুগ্রহ করে আবার চেষ্টা করুন।');
-                console.error('Gemini API response structure unexpected:', result);
+                console.error('my local API response structure unexpected:', result);
             }
         } catch (err) {
             setError('ফাতওয়া পেতে সমস্যা হয়েছে। আপনার ইন্টারনেট সংযোগ পরীক্ষা করুন বা পরে আবার চেষ্টা করুন।');
